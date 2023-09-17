@@ -1,16 +1,18 @@
-package main;
+package huffman;
+
+import java.io.Serializable;
 
 /**
  * The Node class represents a node used in Huffman coding.
  * Each node contains a character (c), its frequency (f), references to its left and right children,
  * and a StringBuilder to store the Huffman code associated with the character.
  */
-public class Node {
+public class Node implements Serializable {
     private char c;                 // The character stored in this node
     private int f;                  // The frequency of the character
     private Node left;              // Reference to the left child node
     private Node right;             // Reference to the right child node
-    private StringBuilder code;     // Stores the Huffman code associated with the character
+    // Stores the Huffman code associated with the character
 
     /**
      * Constructs a Node with a character and its frequency.
@@ -35,7 +37,10 @@ public class Node {
         this.f = f;
         this.left = left;
         this.right = right;
-        this.code = new StringBuilder();
+    }
+
+    public Node() {
+
     }
 
     // Getter and Setter methods for private fields
@@ -44,40 +49,16 @@ public class Node {
         return c;
     }
 
-    public void setC(char c) {
-        this.c = c;
-    }
-
     public int getF() {
         return f;
-    }
-
-    public void setF(int f) {
-        this.f = f;
     }
 
     public Node getLeft() {
         return left;
     }
 
-    public void setLeft(Node left) {
-        this.left = left;
-    }
-
     public Node getRight() {
         return right;
-    }
-
-    public void setRight(Node right) {
-        this.right = right;
-    }
-
-    public StringBuilder getCode() {
-        return code;
-    }
-
-    public void setCode(StringBuilder code) {
-        this.code = code;
     }
 
     // Override equals and hashCode methods for object comparison
